@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import AppInner from './AppInner';
 import store from './src/store';
 
@@ -20,7 +20,6 @@ export type RootStackParamList = { //로그인 안했을때 출력되는 화면
 
 // type을 나눠두면 좋은 이유: 혹시나 로그인화면에서 setting을 넘어가는 말도안되는 현상을 막기 위한 대비책
 
-
 function App() {
   return (
     <Provider store={store}>
@@ -30,3 +29,5 @@ function App() {
 }
 
 export default App;
+
+

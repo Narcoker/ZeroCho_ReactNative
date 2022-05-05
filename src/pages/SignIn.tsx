@@ -1,4 +1,3 @@
-import { NavigationRouteContext } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useCallback, useRef, useState } from "react";
 import { Alert, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
@@ -34,7 +33,7 @@ function SignIn({ navigation }: SignInScreenProps) {
 
     }, [])
     
-    const toSignUp = useCallback(()=>{
+    const toSignUp = useCallback(() => {
         navigation.navigate('SignUp');
     }, [navigation])
     

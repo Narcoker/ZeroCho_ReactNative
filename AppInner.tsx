@@ -1,11 +1,11 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-
+import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Settings from './src/pages/Settings';
 import Orders from './src/pages/Orders';
 import Delivery from './src/pages/Delivery';
-import {useState} from 'react';
+// import {useState} from 'react';
 import SignIn from './src/pages/SignIn';
 import SignUp from './src/pages/SignUp';
 
