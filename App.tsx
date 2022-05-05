@@ -1,13 +1,9 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Settings from './src/pages/Settings';
-import Orders from './src/pages/Orders';
-import Delivery from './src/pages/Delivery';
-import {useState} from 'react';
-import SignIn from './src/pages/SignIn';
-import SignUp from './src/pages/SignUp';
+import { Provider} from 'react-redux';
+import AppInner from './AppInner';
+import store from './src/store';
+
+
 
 export type LoggedInParamList = { // 로그인했을때 출력되는 화면
   Orders: undefined; // 주문 화면
@@ -24,46 +20,12 @@ export type RootStackParamList = { //로그인 안했을때 출력되는 화면
 
 // type을 나눠두면 좋은 이유: 혹시나 로그인화면에서 setting을 넘어가는 말도안되는 현상을 막기 위한 대비책
 
-const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
 
 function App() {
-  const [isLoggedIn, setLoggedIn] = useState(false);
   return (
-    <NavigationContainer>
-      {isLoggedIn ? (
-        <Tab.Navigator>
-          <Tab.Screen
-            name="Orders"
-            component={Orders}
-            options={{title: '오더 목록'}}
-          />
-          <Tab.Screen
-            name="Delivery"
-            component={Delivery}
-            options={{headerShown: false}}
-          />
-          <Tab.Screen
-            name="Settings"
-            component={Settings}
-            options={{title: '내 정보'}}
-          />
-        </Tab.Navigator>
-      ) : (
-        <Stack.Navigator>
-          <Stack.Screen
-            name="SignIn"
-            component={SignIn}
-            options={{title: '로그인'}}
-          />
-          <Stack.Screen
-            name="SignUp"
-            component={SignUp}
-            options={{title: '회원가입'}}
-          />
-        </Stack.Navigator>
-      )}
-    </NavigationContainer>
+    <Provider store={store}>
+      <AppInner/>
+    </Provider>
   );
 }
 
