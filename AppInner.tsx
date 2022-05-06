@@ -12,8 +12,7 @@ import SignUp from './src/pages/SignUp';
 import { useSelector } from 'react-redux';
 import { RootState } from './src/store/reducer';
 
-
-
+ 
 export type LoggedInParamList = { // 로그인했을때 출력되는 화면
   Orders: undefined; // 주문 화면
   Settings: undefined; // 
