@@ -55,7 +55,7 @@ function SignIn({navigation}: SignInScreenProps) {
         userSlice.actions.setUser({
           name: response.data.data.name,
           email: response.data.data.email,
-          accessToken: response.data.data.accessToken,
+          accessToken: response.data.data.accessToken, // 유효기간 10분, 5분, 1시간
         }),
       );
       await EncryptedStorage.setItem(
